@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url(imagenes/balon_fuego.png);
+            background-size: cover; 
+        }
+
+        .contenedor {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0.9;
+        }
+
+        .titulo {
+            margin-bottom: 20px;
+        }
+
+        .login-container {
+            width: 400px;
+            padding: 20px;
+            border: 2px solid #10811d;
+            background-color: #7ccea1;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input {
+            margin-bottom: 10px;
+            width: 200px;
+            height: 25px;
+        }
+
+        button {
+            margin-top: 10px;
+            width: 100px;
+            height: 40px;
+            background-color: #358b35;
+            border-radius: 15px;
+            color:white;
+        }
+        button:hover{
+            background-color: green;
+            font-weight: bold;
+            transform: scale(1.4);
+        }
+        p {
+            color: #ff0000;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+   <div class="contenedor">
+       <div class="titulo">
+           <img src="imagenes/titulo.png" width="400px" height="100px"><br>
+       </div>
+        <div class="login-container">
+            <h2>Control de Acceso</h2>
+            <form id="loginForm" method="post">
+                <label for="username">Nombre de usuario:</label><br>
+                <input type="text" id="username" name="username" required><br>
+                <label for="password">Contraseña:</label><br>
+                <input type="password" id="password" name="password" required><br>
+                <center><button type="submit">ACEPTAR</button></center>
+            </form>
+            <p id="errorDisplay" class="error-message"></p>
+        </div>
+   </div>
+    <script src="script.js"></script>
+</body>
+</html>

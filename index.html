@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url(imagenes/sintetico.png);
+            background-size: cover; 
+        }
+
+        .splash-container {
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            transition: opacity 1s ease-in-out;
+            border-radius: 20px;
+        }
+        h2 {
+            color: #fff500;
+        }
+        p {
+            color: #fff500;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="splash-container">
+        <img src="imagenes/titulo.png" width="300px" height="200px"><br>
+        <h2>Alquiler de Lozas Deportivas</h2>
+        <br>
+        <img id="splashImage" src="imagenes/deportivo1.png" alt="Deportivo">
+        <br>
+        <p>Cargando...</p>
+    </div>
+    <script src="splash.js"></script>
+</body>
+</html>

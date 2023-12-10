@@ -1,0 +1,67 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lozas Deportivas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    .boton {
+        position: absolute; /* Posición absoluta en relación al cuerpo */
+        top: 5px; /* 5px desde el margen superior */
+        left: 5px; /* 5px desde el margen izquierdo */
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+
+    .boton:hover {
+    background-color: #06800c;
+    }
+    .titulo{
+        position: relative;
+        top: -15px;    
+    }
+    .desarrolladores{
+        position: fixed;
+        bottom:0;
+        right: 0;
+        margin:20px;
+    }
+    button {
+        background-color: transparent;
+        padding: 10px;
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        }
+</style>
+<body>
+  <div class="titulo">
+   <img src="imagenes/titulo.png" width="250px" height="50px">   
+  </div>    
+    <a href="alquiler.php?loza=A" class="image-contenedor">
+        <img src="imagenes/campo.png" alt="Loza A">
+        <span class="overlay">A</span>
+    </a>
+    <a href="alquiler.php?loza=B" class="image-contenedor">
+        <img src="imagenes/campo.png" alt="Loza B">
+        <span class="overlay">B</span>
+    </a>
+     <a href="reporte_turnos.html" class="boton">Consultar</a>
+     <div class="desarrolladores">
+        <button type="button">
+          <img src="imagenes/desarrolladores.gif" width="50px" height="50px" alt="Desarrolladores" onclick="irAAutores()" >
+        </button>
+    </div>
+    <script>
+        function irAAutores() {
+            var nombreArchivoActual = 'lozas.html';
+            window.location.href = 'autores.html?anterior=' + nombreArchivoActual;    
+        }
+    </script>
+</body>
+</html>

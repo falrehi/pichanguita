@@ -1,0 +1,186 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 10px;
+    background-image: url(imagenes/fondo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    color: #000000;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    margin: 2px;
+    transition:all .5s ease-in-out;
+}
+
+img:hover {
+    transform: scale(1.05); /* Agranda la imagen */
+    background-color: #FFF;
+    border-radius: 5px;
+    box-shadow: 2px 2px 20px 20px rgba(255, 255, 255, 0.8);
+}
+
+/****************** styles.css *******************/
+.image-contenedor {
+    position: relative;
+    display: inline-block;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: black;
+    color: white;
+    font-size: 100px; /* Tamaño de la letra */
+    border-radius: 50%; /* Para hacer un círculo */
+    opacity: 0; /* Inicialmente oculto */
+    width: 100px; /* Ancho y alto iguales para hacer un círculo */
+    height: 100px;
+    line-height: 100px; /* Centrar verticalmente el texto */
+    text-align: center;
+    box-shadow: 2px 2px 20px 20px rgba(255, 255, 255, 0.8);
+}
+.overlay:hover {
+    box-shadow: 2px 2px 20px 20px rgba(255, 255, 255, 0.8);    
+}
+
+.image-contenedor:hover .overlay {
+    opacity: 1; /* Mostrar la letra en el hover */
+}
+
+/* Formulario Fecha */
+form input[type="date"] {
+    font-size: 20px; /* Tamaño de letra deseado */
+}
+.reloj {
+    font-size: 20px;
+    color: red;
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    position: fixed;
+    top: 5px;
+    left: 5px;
+}
+th{
+    background: white;
+    
+}
+td{
+    font-size: 10px;
+}
+tr{
+  /*  height: 10px;*/
+    
+    text-align: center;
+    vertical-align: middle;
+}
+/* Estilo inicial de las filas */
+tr:hover {
+    transform: scale(1.05); /* Agranda la celda */
+    transition:all .2s ease-in-out;
+    box-shadow: 2px 2px 10px 10px rgba(255, 255, 255, 0.8);
+    background-color: #c3eb8b;
+    cursor: pointer; /* Cambia el cursor a una mano */
+}
+
+/* Ventana Modal*/
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi transparente para resaltar la modal */
+    z-index: 1;   
+}
+
+.modal-content {
+    background-color: #fff;
+    width: 500px;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-top: 50px;
+    
+}
+
+.cancel-button {
+    background-color: #f2cbcb;
+}
+.modal-content input {
+    display: flex; /* Hacer que los campos de entrada ocupen una línea completa */
+    padding:3px;
+    margin-left: 10px;
+}
+
+.icon {
+    margin-right: 10px; /* Espacio entre el ícono y la etiqueta */
+    width: 10px;
+}
+/* Termino de ventana modal*/
+.tiempo_restante {
+    font-weight: bold;
+    background: #00ff00;
+    height: 40px; /* Establece la altura en 40px */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    border-radius: 0px 0px 15px 15px;
+}
+
+@media (max-width: 767px) {
+    .overlay {
+        font-size: 50px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+}
+
+.contenedor-elementos {
+        display: flex;
+        align-items: center;
+    }
+
+    .contenedor-elementos img,
+    .contenedor-elementos input {
+        margin-right: 5px;
+    }
+
+
+.pie{
+    position: fixed;
+    bottom:2px;
+    width: 100%;
+    height: 50px;
+    background-color: red;
+    color:white;
+}
+
+.login-container {
+    display:contents;
+    background-color: #8ebbe2;
+    width: 300px;
+    padding: 20px;
+    border: 2px solid #0027ff;
+    border-radius: 15px;
+}
+
+.splash-container {
+    text-align: center;
+}
+
+#miId{
+    font-size: 40px;
+    font-weight: bold;
+}

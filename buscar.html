@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<button onclick="openModal()">Abrir Formulario</button>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <center>
+            <h2>Alquiler de Loza Deportiva</h2>
+        </center>
+        <img src="imagenes/documento.png" width="50px">
+        <input type="text" placeholder="DNI" id="dni"><br>
+        <input type="text" placeholder="Nombre" id="nombre"><br>
+        <input type="text" placeholder="Correo" id="correo"><br>
+        <input type="number" placeholder="Número de Celular" id="celular"><br>
+        <button onclick="registrarFormulario()">Aceptar</button>
+        <button class="cancel-button" onclick="closeModal()">Cancelar</button>
+        <div class="tiempo_restante">
+            <p>Tiempo: <span id="countdown"></span></p>    
+        </div>
+    </div>
+</div>
+
+<script>
+var modal = document.getElementById("myModal");
+var timeout;
+var countdownElement = document.getElementById("countdown");
+var countdownTime = 1 * 60; // 5 minutos en segundos
+var countdownInterval;
+
+// Función para abrir el modal y comenzar el temporizador
+function openModal() {
+    modal.style.display = "block";
+    updateCountdown();
+
+    // Detener el temporizador actual (si existe)
+    clearTimeout(timeout);
+
+    // Iniciar un nuevo intervalo para actualizar la cuenta regresiva
+    countdownInterval = setInterval(function () {
+        countdownTime--;
+        updateCountdown();
+        if (countdownTime <= 0) {
+            closeModal();
+        }
+    }, 1000);
+}
+
+// Función para actualizar la cuenta regresiva
+function updateCountdown() {
+    var minutes = Math.floor(countdownTime / 60);
+    var seconds = countdownTime % 60;
+    countdownElement.textContent = minutes + "m " + seconds + "s";
+}
+
+// Función para cerrar el modal
+function closeModal() {
+    modal.style.display = "none";
+
+    // Detener el intervalo al cerrar el modal
+    clearInterval(countdownInterval);
+
+    // Reiniciar el tiempo de cuenta regresiva a 5 minutos
+    countdownTime = 5 * 60;
+}
+</script>
+
+</body>
+</html>

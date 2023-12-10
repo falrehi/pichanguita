@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Alquileres</title>
+    <style>
+        body {
+            text-align: center;
+            background-image: url(imagenes/balon.png);
+            background-size: cover; 
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 30px;
+            color: yellow; /* Color del título */
+        }
+
+        #consultaForm {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff; /* Color de fondo del formulario */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: transparent;
+            color: #000000;
+            border: none;
+            padding: 10px;
+            border-radius: 100px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .boton-especial {
+            background-color: #09911e;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 20px;
+            width: 100px;
+            cursor: pointer;
+        }
+        .boton-especial:hover {
+            background-color: #055511;
+            font-weight: bold;
+            box-shadow: -10px 10px 95px 0px rgba(4,97,46,1);
+        }
+        #resultado {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .desarrolladores{
+            position: fixed;
+            bottom:0;
+            right: 0;
+            margin:20px;
+        }
+        img {
+        margin: 2px;
+        transition:all .5s ease-in-out;
+    }
+
+    img:hover {
+        background: transparent;
+        transform: scale(1.05); /* Agranda la imagen */
+        box-shadow: 2px 2px 20px 20px rgba(255, 255, 255, 0.8);
+    }
+    </style>
+</head>
+<body>
+   <a href="lozas.html">
+       <button type="button">
+           <img src="imagenes/regresar.gif" alt="Regresar" width="45px" height="45px">
+      </button>
+    </a>
+    <img src="imagenes/titulo.png" width="450px" height="100px">
+    <h1>Alquiler de Loza Deportiva</h1>
+
+    <form id="consultaForm">
+        <label for="fecha">Seleccionar Fecha de Inicio:</label>
+        <input type="date" id="fecha" name="fecha">
+
+        <label for="fechaFin">Seleccionar Fecha de Fin:</label>
+        <input type="date" id="fechaFin" name="fechaFin">
+
+        <button type="button" class="boton-especial" onclick="calcular()">Reporte</button>
+    </form>
+    
+    <div id="resultado"></div>
+    <!--<div class="desarrolladores">
+        <a href="autores.html" title="Desarrolladores"><img src="imagenes/desarrolladores.png" width="50px" height="50px" alt="Desarrolladores"></a>
+    </div>-->
+    <div class="desarrolladores">
+        <button type="button">
+          <img src="imagenes/desarrolladores.gif" width="50px" height="50px" alt="Desarrolladores" onclick="irAAutores()" >
+        </button>
+    </div>
+
+    <script>
+        function irAAutores() {
+            var nombreArchivoActual = 'reporte_turnos.html';
+            window.location.href = 'autores.html?anterior=' + nombreArchivoActual;
+        }
+        function calcular() {
+            // Obtener valores del formulario
+            var fechaInicio = document.getElementById('fecha').value;
+            var fechaFin = document.getElementById('fechaFin').value;
+
+            // Realizar la consulta al servidor
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Parsear la respuesta JSON
+                    var resultadoConsulta = JSON.parse(xhr.responseText);
+
+                    // Mostrar el resultado
+                    document.getElementById('resultado').innerHTML = "Número de alquileres para Loza A: " + resultadoConsulta.total_alquileres_A + "<br>Total Recaudado para Loza A: " + resultadoConsulta.total_recaudado_A +
+                        "<br><br>Número de alquileres para Loza B: " + resultadoConsulta.total_alquileres_B + "<br>Total Recaudado para Loza B: " + resultadoConsulta.total_recaudado_B;
+                }
+            };
+
+            // Configurar la solicitud
+            xhr.open('POST', 'consultar.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            // Enviar la solicitud con los datos del formulario
+            xhr.send('fechaInicio=' + fechaInicio + '&fechaFin=' + fechaFin);
+            
+            // Enviar la solicitud con los datos del formulario
+            xhr.send('fechaInicio=' + fechaInicio + '&fechaFin=' + fechaFin);
+        }
+    </script>
+
+</body>
+</html>

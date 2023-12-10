@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desarrolladores</title>
+    <style>
+    body{
+        background-image: url(imagenes/autores.png);
+        background-size: cover; 
+    }
+    .contenedor {
+        text-align: center;
+        margin: 20px;
+    }
+    .autor-image {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 100px;
+        margin: 10px;
+    }
+    img {
+        margin: 2px;
+        transition:all .5s ease-in-out;
+    }
+
+    img:hover {
+        transform: scale(1.3); /* Agranda la imagen */
+        background-color: #FFF;
+        border-radius: 5px;
+        box-shadow: 2px 2px 20px 20px rgba(255, 255, 255, 0.8);
+    }
+        
+    .derechos{
+        color:white;
+        font-size: 16px;
+    }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <img src="imagenes/titulo.png" alt="Título" width="450px" height="130px"><br><br>
+        <div class="autores-container">
+          <img class="autor-image" src="imagenes/autor1.jpg" alt="Autor 1">
+          <img class="autor-image" src="imagenes/autor2.jpg" alt="Autor 2">
+          <img class="autor-image" src="imagenes/autor3.jpg" alt="Autor 3">
+          <img class="autor-image" src="imagenes/autor4.jpg" alt="Autor 4">
+        </div>
+        <br><br>
+        <button type="button">
+          <img src="imagenes/regresar.gif" width="50px" height="50px" alt="Regresar" onclick="regresar()">
+        </button>
+        <div class="derechos">
+            <center><p>Derechos Reservados &copy 2023</p></center>
+        </div>
+    </div>
+    <script>
+      function regresar() {
+        var parametros = new URLSearchParams(window.location.search);
+        var archivoAnterior = parametros.get('anterior');
+        if (archivoAnterior) {
+          window.location.href = archivoAnterior;
+        } else {
+            window.location.href = 'lozas.html';
+        }
+      }
+    </script>
+</body>
+</html>
